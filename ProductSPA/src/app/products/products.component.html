@@ -1,0 +1,57 @@
+<div class="container" style="margin-left: 20px;">
+    <div class="row" style="margin-left: 10px;">
+        <br>
+        <div class="col-l-4">
+            <div class="pull-left">
+                <button class="btn btn-success" (click)="newProduct()">New Product</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="margin-left: 10px;">
+        <div class="col-l-3">
+            <input type="text" class="form-control" style="width: 250px;" placeholder="Search with name"
+            (keyup)="onKey($event.target.value)">
+        </div>
+    </div>
+    <br> 
+    <div class="row">
+        <div class="col-lg-10">
+            <a class="list-group-item clearfix" *ngFor="let i of products | slice:startIndex:endIndex" (click)="viewProduct(i)">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{i.name}}</h4>
+                <p class="list-group-item-text">{{i.price | currency}}</p>
+                <p class="list-group-item-text"><strong>Last Updated : </strong>{{i.lastUpdate | date:'dd-MM-yyyy hh:mm a'}}</p>
+            </div>
+            <span class="pull-right">
+                <img [src]="i.photo" alt="" class="img-responsive" style="max-height: 50px;">
+            </span>
+            </a>
+        </div>
+    </div>
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a aria-label="Previous" (click)="forward()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li *ngFor="let i of items; let ii = index"><a (click)="pagination(ii)">{{ii+1}}</a></li>
+            <li>
+                <a aria-label="Next" (click)="back()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <br>
+    <div class="row" style="margin-left: 10px;">
+        <br>
+        <div class="col-lg-4">
+            <div class="pull-left">
+                <button (click)="exportData()" class="btn btn-success">Export Data To Excel</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

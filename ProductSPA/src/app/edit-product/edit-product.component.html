@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <br>
+        <div class="col-xs-8">
+
+        <form #productform="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" [ngModel]=product.name>
+                </div>
+            </div>
+            </div>
+            
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                <label for="imagePath">Image URL</label>
+                <input type="text" id="imagePath" name="imagePath" class="form-control" [ngModel]="product.photo">
+                </div>
+            </div>
+            </div>
+            
+            
+            <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" class="form-control" [ngModel]="product.price">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <img [src]="product.photo" class="img-responsive" style="max-height: 200px;max-width: 200px;">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-l-8">
+                    <button type="submit" class="btn btn-success" style="margin-right: 20px;margin-left: 20px;">Submit</button>
+                    <button type="button" (click)="deleteProduct()" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            
+        </form>
+        </div>
+    </div>
+</div>
+
+  
